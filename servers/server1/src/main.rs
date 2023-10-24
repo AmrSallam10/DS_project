@@ -2,8 +2,6 @@ extern crate serde;
 use serde::{Deserialize, Serialize};
 use serde_json::Result;
 use std::net::UdpSocket;
-use std::thread;
-use std::time::Duration;
 
 #[derive(Serialize, Deserialize)]
 struct MSG {
@@ -26,7 +24,6 @@ fn handle_request(buffer: &[u8], src_addr: std::net::SocketAddr) {
             // Handle the error here, e.g., return an error response or take appropriate action.
         }
     }
-    thread::sleep(Duration::from_secs(5))
 }
 
 fn main() {
